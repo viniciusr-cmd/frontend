@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Person</title>
+</head>
+
+<body>
+  <h1 class="display-3">Incluir Pessoa</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <strong><a class="navbar-brand" href="#">Dashboard</a></strong>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Content-->
+  <div class="container">
+    <div class="mx-auto w-25" style="max-width: 100%;">
+      <h2 class="text-center mb-3">Incluir Pessoa</h2>
+      <form [formGroup]="form" (ngSubmit)="addPerson()">
+        <!--Nome-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" name="nome" id="nome" formControlName="nome" placeholder="Nome" required>
+          </div>
+        </div>
+        <!--Data Nascimento-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="data_nasc" class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control" name="data_nasc" id="data_nasc" formControlName="data_nasc" placeholder="Data de Nascimento" required>
+          </div>
+        </div>
+        <!--CPF-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" name="cpf" id="cpf" formControlName="cpf" placeholder="CPF" required>
+          </div>
+        </div>
+        <!--Sexo-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="sexo" class="form-label">Sexo</label>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexo" type="radio" name="sexo" id="feminino" value="F">
+              <label for="feminino" class="form-check-label">Feminino</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexo" type="radio" name="sexo" id="masculino" value="M">
+              <label for="masculino" class="form-check-label">Masculino</label>
+            </div>
+          </div>
+        </div>
+        <!--Altura-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="altura" class="form-label">Altura</label>
+            <input type="text" class="form-control" name="altura" id="altura" formControlName="altura" placeholder="Altura" required>
+          </div>
+        </div>
+        <!--Peso-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="peso" class="form-label">Peso</label>
+            <input type="text" class="form-control" name="peso" id="peso" formControlName="peso" placeholder="Peso" required>
+          </div>
+        </div>
+        <!--Submit-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <button type="submit" value="submit" class="btn btn-primary w-100" [disabled]="!form.valid">Incluir</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

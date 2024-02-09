@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <h1 class="display-3">Dashboard</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            routerLink="/add" href="#">Incluir Pessoa</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Content-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Pessoas</h1>
+
+        <button class="btn btn-success" routerLink="/add">+ Incluir +</button>
+        <br>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control" type="text" placeholder="Pesquisa por nome" #filter>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="filterResults(filter.value)">Pesquisar</button>
+        </form>
+        <br>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">Altura</th>
+              <th scope="col">Peso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let person of persons">
+              <th scope="row">{{ person.id }}</th>
+              <td>{{person.nome}}</td>
+              <td>{{person.data_nasc}}</td>
+              <td>{{person.cpf}}</td>
+              <td>{{person.sexo}}</td>
+              <td>{{person.altura}}</td>
+              <td>{{person.peso}}</td>
+              <td>
+                <button class="btn btn-outline-primary" routerLink="/details/{{person?.id}}">Detalhes</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
